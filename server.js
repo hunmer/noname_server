@@ -1,6 +1,13 @@
 (function(){
-	var WebSocketServer=require('ws').Server;
-	var wss=new WebSocketServer({port:8080});
+	var express = require('express');
+	var http = require('http');
+	var WebSocket = require('ws');
+	
+	var app = express();
+	app.use(express.static(__dirname));
+
+	var server = http.createServer(app);
+	var wss = new WebSocket.Server({server});
 	var bannedKeys=[];
 	var bannedIps=[];
 
@@ -354,5 +361,8 @@
 			if(this.room) util.updaterooms();
 			else util.updateclients();
 		});
+	});
+	server.listen(8000, function listening() {
+	    console.log('服务器启动成功！');
 	});
 }());
