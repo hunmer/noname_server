@@ -1,7 +1,7 @@
 
 #免费搭建无名杀服务器方法:
 
-* 1.修改game.js ( 27985 行左右 )
+* 1.修改game.js ( 27985 行左右 ) 或者直接 覆盖提供的game.js到游戏目录/game/下
 ```javascript
 if(!withport){
 	ip=ip + (ip.indexOf('wss://') == 0 ? ':443' : ':8080');
